@@ -1,0 +1,50 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title class="ion-text-center">Incription</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid>
+    <form [formGroup]="signupForm" (ngSubmit)="onSubmit()">
+      <ion-row class="ion-justify-content-center">
+        <ion-col class="ion-align-self-center" size-md="6" size-lg="5" size-xs="12">
+          <div class="ion-text-center">
+            <h4>Formulaire d'inscription</h4>
+          </div>
+          <div class="ion-padding">
+            <h4 class="ion-color-danger">{{ errorMessage }}</h4>
+            <ion-item>
+              <ion-input type="text" placeholder="Prenom" formControlName="prenom"></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-input type="text" placeholder="Nom" formControlName="nom"></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-input type="text" placeholder="Pseudo" formControlName="username"></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-input type="text" placeholder="Email" formControlName="email"></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-input type="password" placeholder="Mot de passe" formControlName="password"></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-input type="text" placeholder="Telephone" formControlName="telephone"></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-input type="text" placeholder="Adresse" formControlName="adresse"></ion-input>
+            </ion-item>
+          </div>
+
+          <div class="ion-padding">
+            <ion-button size="medium" type="submit" expand="block" [disabled]="signupForm.invalid">Créer un compte</ion-button>
+          </div>
+          <div class="ion-padding connect-link">
+            <a routerLink="/tabs/compte/connect">Se connecter</a>
+          </div>
+        </ion-col>
+      </ion-row>
+    </form>
+  </ion-grid>
+</ion-content>

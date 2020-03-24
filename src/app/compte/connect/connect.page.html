@@ -1,0 +1,40 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title class="ion-text-center">
+      Se connecter
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid>
+    <form [formGroup]="connectForm" (ngSubmit)="onSubmit()">
+      <ion-row class="ion-justify-content-center">
+        <ion-col class="ion-align-self-center" size-md="6" size-lg="5" size-xs="12">
+          <div class="ion-text-center">
+            <h4>Formulaire de connexion</h4>
+          </div>
+          <div class="ion-padding">
+            <h4 class="ion-color-danger">{{ errorMessage }}</h4>
+            <ion-item>
+              <ion-input type="text" placeholder="Email ou Pseudo" formControlName="email"></ion-input>
+            </ion-item>
+
+            <ion-item>
+              <ion-input type="password" placeholder="Mot de passe" formControlName="password"></ion-input>
+            </ion-item>
+          </div>
+
+          <div class="ion-padding">
+            <ion-button size="medium" type="submit" expand="block" [disabled]="connectForm.invalid">Se connecter</ion-button>
+          </div>
+          <div class="ion-padding connect-link">
+            <a routerLink="/tabs/compte/inscription" class="ion-float-left">Créer un compte</a>
+            <a href="#" class="ion-float-right">Mot de passe oublié ?</a>
+          </div>
+        </ion-col>
+      </ion-row>
+    </form>
+  </ion-grid>
+</ion-content>
+

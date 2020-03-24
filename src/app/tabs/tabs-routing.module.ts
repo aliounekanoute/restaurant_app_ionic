@@ -1,6 +1,8 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { TabsPage } from './tabs.page';
+import {AuthGuard} from '../guard/auth.guard';
+import {AdminGuard} from "../guard/admin.guard";
 
 const routes: Routes = [
   {
@@ -8,45 +10,100 @@ const routes: Routes = [
     component: TabsPage,
     children: [
       {
-        path: 'tab1',
+        path: 'compte',
         children: [
           {
             path: '',
             loadChildren: () =>
-              import('../tab1/tab1.module').then(m => m.Tab1PageModule)
+              import('../compte/connect/connect.module').then(m => m.ConnectPageModule)
+          },
+          {
+            path: 'connect',
+            loadChildren: () =>
+                import('../compte/connect/connect.module').then(m => m.ConnectPageModule)
+          },
+          {
+            path: 'inscription',
+            children: [
+              {
+                path: '',
+                loadChildren: () =>
+                    import('../compte/incription/incription.module').then(m => m.IncriptionPageModule)
+              }
+            ]
+          },
+          {
+            path: 'profil',
+            canActivate: [AuthGuard],
+            children: [
+              {
+                path: '',
+                loadChildren: () =>
+                    import('../compte/profil/profil.module').then(m => m.ProfilPageModule)
+              },
+              {
+                path: 'modifier/:id',
+                loadChildren: () =>
+                    import('../compte/profil/modifier/modifier.module').then(m => m.ModifierPageModule)
+              }
+            ]
           }
         ]
       },
       {
-        path: 'tab2',
+        path: 'menu',
         children: [
           {
             path: '',
             loadChildren: () =>
-              import('../tab2/tab2.module').then(m => m.Tab2PageModule)
+              import('../menu/menu.module').then(m => m.MenuPageModule)
+          },
+          {
+            path: 'plats',
+            canActivate: [AdminGuard],
+            children: [
+              {
+                path: '',
+                loadChildren: () => import('../menu/plats/plats.module').then( m => m.PlatsPageModule)
+              },
+              {
+                path: 'ajouter',
+                loadChildren: () => import('../menu/plats/ajouter/ajouter.module').then(m => m.AjouterPageModule)
+              },
+              {
+                path: 'modifier/:id',
+                loadChildren: () => import('../menu/plats/modifier/modifier.module').then(m => m.ModifierPageModule)
+              }
+            ]
+          },
+          {
+            path: 'modifier-menu',
+            canActivate: [AdminGuard],
+            loadChildren: () => import('../menu/modifier-menu/modifier-menu.module').then( m => m.ModifierMenuPageModule)
           }
         ]
       },
       {
-        path: 'tab3',
+        path: 'commande',
+        canActivate: [AuthGuard],
         children: [
           {
             path: '',
             loadChildren: () =>
-              import('../tab3/tab3.module').then(m => m.Tab3PageModule)
+              import('../commande/commande.module').then(m => m.CommandePageModule)
           }
         ]
       },
       {
         path: '',
-        redirectTo: '/tabs/tab1',
+        redirectTo: '/tabs/compte',
         pathMatch: 'full'
       }
     ]
   },
   {
     path: '',
-    redirectTo: '/tabs/tab1',
+    redirectTo: '/tabs/compte',
     pathMatch: 'full'
   }
 ];

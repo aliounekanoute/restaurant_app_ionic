@@ -1,0 +1,43 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title class="ion-text-center">
+      Menu du jour
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <div>
+    <ion-list>
+      <ion-item *ngFor="let plat of menu_du_jour">
+        <ion-card>
+          <ion-card-header>
+            <ion-card-title>
+              {{plat.nom}}
+            </ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+            <p>
+              {{plat.description}}
+            </p>
+            <div class="prix">
+              <h4 class="ion-float-left">Prix : {{plat.prix}} </h4>
+              <ion-button color="primary" class="ion-float-right" *ngIf="token != null && role == 'Authenticated'" (click)="onCommande(plat)">COMMANDER</ion-button>
+            </div>
+          </ion-card-content>
+        </ion-card>
+      </ion-item>
+    </ion-list>
+  </div>
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed" *ngIf="token != null && role == 'Admin'" routerLink="modifier-menu">
+    <ion-fab-button>
+      <ion-icon name="create-outline"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+  <ion-fab vertical="bottom" horizontal="start" slot="fixed" *ngIf="token != null && role == 'Admin'" routerLink="plats">
+    <ion-fab-button>
+      <ion-icon name="pizza-outline"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+
+</ion-content>

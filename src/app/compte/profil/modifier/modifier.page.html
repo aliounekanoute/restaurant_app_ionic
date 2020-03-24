@@ -1,0 +1,36 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title class="ion-text-center">Modifier votre profile</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid>
+    <form [formGroup]="updateForm" (ngSubmit)="onSubmit()">
+      <ion-row class="ion-align-self-center">
+        <ion-col class="ion-align-self-center" size-md="6" size-lg="5" size-xs="12">
+          <div class="ion-text-center">
+            <h4>Modifier</h4>
+          </div>
+          <div class="ion-padding">
+            <ion-item>
+              <ion-input type="text" formControlName="prenom" placeholder="Prenom"></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-input type="text" formControlName="nom" placeholder="Nom"></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-input type="text" formControlName="telephone" placeholder="Telephone"></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-input type="text" formControlName="adresse" placeholder="Adresse"></ion-input>
+            </ion-item>
+          </div>
+          <div class="ion-padding">
+            <ion-button expand="block" size="medium" type="submit" [disabled]="updateForm.invalid">Mettre à jour</ion-button>
+          </div>
+        </ion-col>
+      </ion-row>
+    </form>
+  </ion-grid>
+</ion-content>
