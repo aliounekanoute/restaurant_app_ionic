@@ -76,7 +76,8 @@ export class ModifierPage implements OnInit {
           this.userService.emitUser();
           loading.dismiss();
           this.presentToast('Votre profile a été mis à jour');
-          this.router.navigate(['/tabs/compte/profil']);
+          // this.router.navigate(['/tabs/compte/profil']);
+          window.location.replace('/tabs/compte/profil');
         },
         err => {
           console.log(err);

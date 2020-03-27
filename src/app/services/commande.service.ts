@@ -18,8 +18,7 @@ export class CommandeService implements OnInit, OnDestroy {
   commandeSubsject = new Subject<any[]>();
 
   constructor(private authService: AuthService,
-              private httpClient: HttpClient,
-              private userService: UserService) { }
+              private httpClient: HttpClient) { }
 
   ngOnInit(): void {
     this.authSubscription = this.authService.authSubject.subscribe(
