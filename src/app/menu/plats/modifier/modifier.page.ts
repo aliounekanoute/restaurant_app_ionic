@@ -16,7 +16,6 @@ export class ModifierPage implements OnInit, OnDestroy {
 
   updateForm: FormGroup;
   plat: Plat;
-  errorMessage: string;
   previousRouteSubscription: Subscription;
   previousPage = '';
 

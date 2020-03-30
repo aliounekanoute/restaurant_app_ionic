@@ -3,6 +3,10 @@
 $white-color: #fff;
 $height100: 100%;
 
+.error {
+  color: red;
+}
+
 ion-grid {
   width:100%;
   height: $height100;

@@ -15,7 +15,6 @@ import {PreviousRouteService} from "../../../services/previous-route.service";
 export class AjouterPage implements OnInit, OnDestroy {
 
   addForm: FormGroup;
-  errorMessage: string;
   previousRouteSubscription: Subscription;
   previousPage = '';
 
