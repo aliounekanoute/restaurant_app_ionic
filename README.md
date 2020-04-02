@@ -2,7 +2,9 @@
 
 # Projet: développement d'une application pour restaurant avec IONIC
 
-## Auteur : Alioune Harouna Kanoute. Classe : Master 2 GLSI
+## Auteur : Alioune Harouna Kanoute. 
+
+## Classe : Master 2 GLSI
 
 
 #### *Cette application va consommer l'API restaurant_app_strapi*
