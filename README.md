@@ -29,7 +29,7 @@ Il nous est demandé de développer une application mobile avec ionic qui permet
 
 #### Côté utilisateur
 ```
-- Inscription, Connexion et *déconnexion* 
+- Inscription, Connexion et déconnexion 
 - Voir liste des plats 
 ```
 #### Et s'il est connecté :
